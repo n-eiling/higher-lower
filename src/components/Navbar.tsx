@@ -23,8 +23,8 @@ export default function Navbar() {
             :
             <Button 
               classNames={"navbar-sign-in-button"}
-              onClick={() => {navigate('/sign-in')}}
-              text={"Sign In"}
+              onClick={() => { navigate('/app') }}
+              text={"Play"}
             />
           }
         </div>

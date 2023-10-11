@@ -19,6 +19,11 @@ export default function VSComponent({ active, correct }: Props) {
         >
           <IoMdCheckmark className="vs-component-checkmark" />
         </div>
+        <div
+          className={correct === false ? "vs-component-icon-wrapper top-0" : "vs-component-icon-wrapper-hidden"}
+        >
+          <IoMdClose className="vs-component-close" />
+        </div>
 
         <div className="vs-component-hiding-layer"></div>
       </div>

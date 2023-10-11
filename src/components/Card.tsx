@@ -13,12 +13,15 @@ export default function Card({ name, avatar_url, stargazers_count, showButtonsPr
   }
   
   return (
-    <div className="card-wrapper">
-      <img className="img-repo" src={avatar_url} alt={name} />
+    <div className="card-wrapper" style={{
+      backgroundImage: `url(${avatar_url})`
+    }}>
+      {/* <img className="img-repo" src={avatar_url} alt={name} /> */}
 
+      <div className="card-text">
       <h1 className="repo-name-heading">{name}</h1>
 
-      <p className="has-word">has</p>
+        <p className="has-word">costs</p>
 
       {showButtons ?
         <div>
@@ -26,19 +29,19 @@ export default function Card({ name, avatar_url, stargazers_count, showButtonsPr
             <IconButton 
               icon={<AiOutlineCaretUp className="w-6 h-6 ml-3 m700:w-4 m700:h-4" />}
               onClick={() => handleButtonClick((stargazers_count > prevRepo?.stargazers_count))}
-              text="Higher"
+                text="More"
               classNames="card-button m700:mb-2"
             />
 
             <IconButton 
               icon={<AiOutlineCaretDown className="w-6 h-6 ml-4 m700:w-4 m700:h-4" />}
               onClick={() => handleButtonClick(stargazers_count < prevRepo?.stargazers_count)}
-              text="Lower"
+                text="Less"
               classNames="card-button m700:mb-1"
             />
           </div>
 
-          <p className="stars-than">stars than {prevRepo?.name}</p>
+            <p className="stars-than">than {prevRepo?.name}</p>
         </div>
         :
         <div>
@@ -52,12 +55,13 @@ export default function Card({ name, avatar_url, stargazers_count, showButtonsPr
               />
               :
               stargazers_count
-            }
+              } €
           </h2>
       
-          <p className="stars-on-github">stars on github</p>
+            <p className="stars-on-github"> </p>
         </div>
       }
+      </div>
     </div>
   )
 }

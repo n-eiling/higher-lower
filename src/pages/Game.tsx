@@ -8,6 +8,7 @@ import { supabase } from "../supabase"
 import useUserStore from "../stores/userStore"
 import TryAgainModal from "../components/TryAgainModal"
 import { Repository } from "../types"
+import Lifes from "../components/Lifes"
 
 export default function Game() {
   const [cards, setCards] = useState<Repository[]>([])
@@ -26,6 +27,7 @@ export default function Game() {
   // repeat this process
 
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null)
+  const [numLives, setNumLives] = useState<number>(3)
   // used for displaying checkmark icon
 
   const [showVS, setShowVS] = useState<boolean>(true)
@@ -45,23 +47,21 @@ export default function Game() {
     }
   }, [cards.length])
 
-  const randomNumber = (range: number): number => Math.floor(Math.random() * range) + 1
+  const randomNumber = (range: number): number => Math.floor(Math.random() * range)
 
   const addNewRepo = () => {
-    const newRepo = repos[randomNumber(172)]
+    let newRepo = repos[randomNumber(repos.length - 1)]
 
     // we are taking a random repo from repos.json
 
-    const repositoryExists = pastRepos.some((repo) => repo.id === newRepo.id)
+    while (pastRepos.some((repo) => repo.id === newRepo.id)) {
+      newRepo = repos[randomNumber(repos.length)]
+    }
 
-    if (repositoryExists) {
-      addNewRepo()
-    } else {
-      setCards((cards) => [...cards, newRepo])
-      setPastRepos((pastRepos) => [...pastRepos, newRepo])
+    setCards((cards) => [...cards, newRepo])
+    setPastRepos((pastRepos) => [...pastRepos, newRepo])
 
       // if repo doesn't exist in pastRepos, we are adding it to cards array and past repos
-    }
   }
 
   const handleScore = () => {
@@ -80,12 +80,13 @@ export default function Game() {
   }
 
   const handleCardButton = (correct: boolean) => {
-    if (correct) {
-      setIsCorrect(true)
+    if (correct || numLives > 1) {
+      setIsCorrect(correct)
       handleScore()
 
       setTimeout(() => {
         setShowVS(false)
+        if (!correct) setNumLives(numLives - 1);
       }, 1500)
 
       setTimeout(() => {
@@ -102,8 +103,12 @@ export default function Game() {
       setTimeout(() => {
         setIsCorrect(false)
       }, 500)
-      if (signedIn) updateUsersTable()
+      setTimeout(() => {
+        setNumLives(numLives - 1);
+      }, 1500)
     }
+      if (signedIn) updateUsersTable()
+
   }
 
   return (
@@ -133,7 +138,10 @@ export default function Game() {
       />
       <Score />
       <TryAgainModal 
-        active={isCorrect === false}
+        active={numLives === 0}
+      />
+      <Lifes
+        lifes={numLives}
       />
     </>
   )

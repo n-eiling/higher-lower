@@ -1,5 +1,4 @@
 import { BiLogOut } from 'react-icons/bi'
-import { supabase } from '../supabase'
 import { useNavigate } from 'react-router-dom'
 import ProfileDropdownButton from './ProfileDropdownButton'
 import useUserStore from '../stores/userStore'
@@ -10,7 +9,6 @@ export default function ProfileDropdown({ active }: { active: boolean } ) {
   const { username } = useUserStore()
 
   const signOut = async () => {
-    await supabase.auth.signOut()
 
     navigate(0)
   }

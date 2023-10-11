@@ -12,7 +12,7 @@ export default function Home() {
       <main className="main items-center">
         <div>
           <h1 className="home-heading">
-            Guess which github repository has a higher or lower amount of stars!
+            Guess which object is more expensive!
           </h1>
 
           <Button
