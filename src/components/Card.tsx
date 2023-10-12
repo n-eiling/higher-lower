@@ -4,22 +4,25 @@ import { AiOutlineCaretDown, AiOutlineCaretUp } from 'react-icons/ai'
 import { CountUp } from "use-count-up"
 import { Repository } from "../types"
 
-export default function Card({ name, avatar_url, stargazers_count, showButtonsProp, prevRepo, handleCardButton }: Repository) {
+export default function Card({ name, description, image, price, showButtonsProp, prevRepo, handleCardButton }: Repository) {
   const [showButtons, setShowButtons] = useState(showButtonsProp)
 
   const handleButtonClick = (correct: boolean) => {
     handleCardButton(correct)
     setShowButtons(false)
   }
-  
+
+  const pricec = (Math.round(price * 100) / 100);
+
   return (
     <div className="card-wrapper" style={{
-      backgroundImage: `url(${avatar_url})`
+      backgroundImage: `url(${image})`
     }}>
       {/* <img className="img-repo" src={avatar_url} alt={name} /> */}
 
       <div className="card-text">
       <h1 className="repo-name-heading">{name}</h1>
+        <h2 className="repo-description">{description}</h2>
 
         <p className="has-word">costs</p>
 
@@ -28,14 +31,14 @@ export default function Card({ name, avatar_url, stargazers_count, showButtonsPr
           <div className="flex flex-col w-min mx-auto">
             <IconButton 
               icon={<AiOutlineCaretUp className="w-6 h-6 ml-3 m700:w-4 m700:h-4" />}
-              onClick={() => handleButtonClick((stargazers_count > prevRepo?.stargazers_count))}
+                onClick={() => handleButtonClick((price > prevRepo?.stargazers_count))}
                 text="More"
               classNames="card-button m700:mb-2"
             />
 
             <IconButton 
               icon={<AiOutlineCaretDown className="w-6 h-6 ml-4 m700:w-4 m700:h-4" />}
-              onClick={() => handleButtonClick(stargazers_count < prevRepo?.stargazers_count)}
+                onClick={() => handleButtonClick(price < prevRepo?.stargazers_count)}
                 text="Less"
               classNames="card-button m700:mb-1"
             />
@@ -49,12 +52,13 @@ export default function Card({ name, avatar_url, stargazers_count, showButtonsPr
             {showButtonsProp ?
               <CountUp
                 isCounting={true}
-                duration={0.5} 
-                start={stargazers_count - 1000}
-                end={stargazers_count} 
+                  duration={1}
+                  start={pricec + pricec * 100}
+                  end={pricec}
+                  decimalPlaces={2}
               />
               :
-              stargazers_count
+                pricec.toFixed(2)
               } €
           </h2>
       

@@ -2,79 +2,81 @@
     {
         "id": 1,
         "name": "free-programming-books",
-        "avatar_url": "https://avatars.githubusercontent.com/u/14127308?v=4",
-        "stargazers_count": 28.00
+        "image": "https://avatars.githubusercontent.com/u/14127308?v=4",
+        "price": 28.00
     },
     {
         "id": 2,
         "name": "FEIN Membership per Yeat",
-        "avatar_url": "src/assets/fein.svg",
-        "stargazers_count": 12.00
+        "image": "src/assets/fein.svg",
+        "price": 12.00
     },
     {
         "id": 3,
         "name": "Dom Guided Tour per Adult",
-        "avatar_url": "src/assets/dom.jpg",
-        "stargazers_count": 5.00
+        "image": "src/assets/dom.jpg",
+        "price": 5.00
     },
     {
         "id": 4,
-        "name": "Main Building Coffee Machine (Jura WE6)",
-        "avatar_url": "src/assets/big_we6.jpg",
-        "stargazers_count": 1450.00
+        "name": "Main Building Coffee Machine",
+        "description": "Jura WE6",
+        "image": "src/assets/big_we6.jpg",
+        "price": 1450.00
     },
     {
         "id": 5,
         "name": "SMD Resistor 0805 0 Ohms Vishay",
-        "avatar_url": "src/assets/0805-resistor.jpg",
-        "stargazers_count": 0.01
+        "image": "src/assets/0805-resistor.jpg",
+        "price": 0.01
     },
     {
         "id": 6,
         "name": "IEEE Access Paper Processing Fee",
-        "avatar_url": "src/assets/IEEE-access.png",
-        "stargazers_count": 1851.63
+        "description": "IEEE Access is a multidisciplinary, applications-oriented, all-electronic archival journal.",
+        "image": "src/assets/IEEE-access.png",
+        "price": 1851.63
     },
     {
         "id": 7,
         "name": "Fluke 175 Multimeter",
-        "avatar_url": "src/assets/flukedmm.jpg",
-        "stargazers_count": 272.51
+        "image": "src/assets/flukedmm.jpg",
+        "price": 272.51
     },
     {
         "id": 8,
         "name": "GPU NVIDIA H100 80GB",
-        "avatar_url": "src/assets/h100gpu.jpg",
-        "stargazers_count": 38243.03
+        "image": "src/assets/h100gpu.jpg",
+        "price": 38243.03
     },
     {
         "id": 9,
         "name": "Generic 3.3V 1A Linear Voltage Regulator",
-        "avatar_url": "src/assets/linear-voltage-regulator.jpg",
-        "stargazers_count": 0.14
+        "image": "src/assets/linear-voltage-regulator.jpg",
+        "price": 0.14
     },
     {
         "id": 10,
         "name": "Soldering Station Weller",
-        "avatar_url": "src/assets/loetstation.jpg",
-        "stargazers_count": 1539.00
+        "image": "src/assets/loetstation.jpg",
+        "price": 1539.00
     },
     {
         "id": 11,
         "name": "Matlab Academic License (without Toolboxes)",
-        "avatar_url": "src/assets/matlab.png",
-        "stargazers_count": 525.00
+        "image": "src/assets/matlab.png",
+        "price": 525.00
     },
     {
         "id": 12,
         "name": "40 Foot Shipping Container (used, empty)",
-        "avatar_url": "src/assets/shipping-container.jpg",
-        "stargazers_count": 1785.00
+        "image": "src/assets/shipping-container.jpg",
+        "price": 1785.00
     },
     {
         "id": 13,
         "name": "Office Chair",
-        "avatar_url": "src/assets/office-chair.jpg",
-        "stargazers_count": 318.66
+        "image": "src/assets/office-chair.jpg",
+        "price": 318.66
     }
 ]

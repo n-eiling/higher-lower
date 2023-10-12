@@ -82,7 +82,7 @@ export default function Game() {
   const handleCardButton = (correct: boolean) => {
     if (correct || numLives > 1) {
       setIsCorrect(correct)
-      handleScore()
+      if (correct) handleScore()
 
       setTimeout(() => {
         setShowVS(false)
@@ -123,8 +123,9 @@ export default function Game() {
             <Card
               key={card.id}
               name={card.name}
-              avatar_url={card.avatar_url}
-              stargazers_count={card.stargazers_count}
+              description={card.description}
+              image={card.image}
+              price={card.price}
               showButtonsProp={cards.indexOf(card) !== 0}
               prevRepo={cards[cards.indexOf(card) - 1]}
               handleCardButton={handleCardButton}

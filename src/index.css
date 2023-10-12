@@ -30,12 +30,14 @@ body {
   @apply flex flex-col justify-center items-center text-center;
   background-repeat: no-repeat;
     background-position: center;
+  background-size: 90%;
   }
   
   .card-text {
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 50px;
     padding: 10px;
+    max-width: 70%;
 }
 
 .img-repo {
@@ -47,6 +49,9 @@ body {
   m700:mt-3 m550:text-[14px] m550:mt-1;
 }
 
+.repo-description {
+  @apply text-[25px] font-bold mt-6 m1200:text-[2px] m1000:text-[18px] portrait-lg:text-[15px] m700:text-[12px] m700:mt-3 m550:text-[10px];
+}
 .has-word {
   @apply my-2 portrait-lg:my-2 m700:text-sm m550:text-[12px] m550:my-1;
 }
