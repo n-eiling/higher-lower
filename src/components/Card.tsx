@@ -31,14 +31,14 @@ export default function Card({ name, description, image, price, showButtonsProp,
           <div className="flex flex-col w-min mx-auto">
             <IconButton 
               icon={<AiOutlineCaretUp className="w-6 h-6 ml-3 m700:w-4 m700:h-4" />}
-                onClick={() => handleButtonClick((price > prevRepo?.stargazers_count))}
+                onClick={() => handleButtonClick((price > prevRepo?.price))}
                 text="More"
               classNames="card-button m700:mb-2"
             />
 
             <IconButton 
               icon={<AiOutlineCaretDown className="w-6 h-6 ml-4 m700:w-4 m700:h-4" />}
-                onClick={() => handleButtonClick(price < prevRepo?.stargazers_count)}
+                onClick={() => handleButtonClick(price < prevRepo?.price)}
                 text="Less"
               classNames="card-button m700:mb-1"
             />

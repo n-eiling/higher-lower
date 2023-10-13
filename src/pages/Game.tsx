@@ -50,12 +50,17 @@ export default function Game() {
   const randomNumber = (range: number): number => Math.floor(Math.random() * range)
 
   const addNewRepo = () => {
+    let distance = 2
     let newRepo = repos[randomNumber(repos.length - 1)]
 
     // we are taking a random repo from repos.json
-
-    while (pastRepos.some((repo) => repo.id === newRepo.id)) {
+    if (pastRepos.length > 0) {
+      while (pastRepos.some((repo) => repo.id === newRepo.id) || Math.abs(pastRepos[pastRepos.length - 1].price - newRepo.price) > distance) {
+        if (Math.abs(pastRepos[pastRepos.length - 1].price - newRepo.price) > distance) {
+          distance *= 1.3
+        }
       newRepo = repos[randomNumber(repos.length)]
+    }
     }
 
     setCards((cards) => [...cards, newRepo])

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "copy": "mkdir -p dist/src/assets && cp -r src/assets/ dist/src/",
     "preview": "vite preview"
   },
   "dependencies": {
