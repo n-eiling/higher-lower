@@ -53,14 +53,18 @@ export default function Game() {
     let distance = 2
     let newRepo = repos[randomNumber(repos.length - 1)]
 
+    if (pastRepos.length === repos.length) {
+      setNumLives(0)
+      return
+    }
     // we are taking a random repo from repos.json
     if (pastRepos.length > 0) {
       while (pastRepos.some((repo) => repo.id === newRepo.id) || Math.abs(pastRepos[pastRepos.length - 1].price - newRepo.price) > distance) {
         if (Math.abs(pastRepos[pastRepos.length - 1].price - newRepo.price) > distance) {
-          distance *= 1.3
+          distance *= 1.3 // bias to choose repos with similar prices. Increase to make it more random.
         }
       newRepo = repos[randomNumber(repos.length)]
-    }
+      }
     }
 
     setCards((cards) => [...cards, newRepo])
