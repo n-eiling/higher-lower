@@ -54,7 +54,6 @@ export default function Game() {
     let newRepo = repos[randomNumber(repos.length - 1)]
 
     if (pastRepos.length === repos.length) {
-      setNumLives(0)
       return
     }
     // we are taking a random repo from repos.json
@@ -89,6 +88,14 @@ export default function Game() {
   }
 
   const handleCardButton = (correct: boolean) => {
+    if (cards.length <= 2) {
+      setIsCorrect(correct)
+      if (correct) handleScore()
+      setTimeout(() => {
+        setNumLives(0);
+      }, 1500)
+      return
+    }
     if (correct || numLives > 1) {
       setIsCorrect(correct)
       if (correct) handleScore()
@@ -110,7 +117,7 @@ export default function Game() {
       }, 2300)
     } else {
       setTimeout(() => {
-        setIsCorrect(false)
+        setIsCorrect(correct)
       }, 500)
       setTimeout(() => {
         setNumLives(numLives - 1);
